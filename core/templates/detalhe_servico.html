@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block conteudo %}
+    <div class="container">
+       <div class="item-img">
+           <img src="{{ servico.imagem.thumb.url }}" alt="imagem serviço"
+                width="500" height="333">
+       </div>
+       <div class="container">
+           <h1> {{ servico.nome }} </h1>
+           <p>{{ servico.descricao }}</p>
+       </div>
+    </div>
+{% endblock %}
