@@ -1,0 +1,29 @@
+{% load static %}
+<section class="menu cid-s48OLK6784" once="menu" id="menu1-k">
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="{% url 'core:index' %}">
+                        <img src="{% static 'images/LogoMidiaKadosh2.png' %}" alt="logotipo" style="height: 3.8rem;">
+                    </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="{% url 'core:index' %}">Mídia Kadosh</a></span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="{% url 'core:index' %}#top">
+                            Home<br></a></li><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="{% url 'core:index' %}#features3-s">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="{% url 'core:index' %}#team1-p">
+                            Nossa Equipe</a></li></ul>
+            </div>
+        </div>
+    </nav>
+</section>
