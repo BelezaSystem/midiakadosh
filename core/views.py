@@ -1,8 +1,8 @@
-from django.views.generic import FormView, DetailView
+from django.views.generic import FormView, DetailView, ListView
 from django.urls import reverse_lazy
 from django.contrib import messages
 
-from .models import Funcionario, Servico
+from .models import Funcionario, Servico, EventosDias, Eventos
 from .forms import ContatoForm
 
 
@@ -16,6 +16,8 @@ class IndexView(FormView):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['funcionarios'] = Funcionario.objects.order_by('?').all()
         context['servicos'] = Servico.objects.order_by('?').all()
+        context['eventos'] = Eventos.objects.order_by('?').all()
+        context['eventosdias'] = EventosDias.objects.order_by('?').all()
         return context
 
     def form_valid(self, form, *args, **kwargs):
@@ -30,4 +32,4 @@ class IndexView(FormView):
 
 class DetalharServicoView(DetailView):
     template_name = 'detalhe_servico.html'
-    model = Servico
+    model = Eventos

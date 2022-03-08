@@ -4,11 +4,11 @@
     <div class="container">
         <div class="mbr-section-head">
             <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                <strong>Galeria</strong></h4>
+                <strong>Fotos Cultos e Redes</strong></h4>
 
         </div>
         <div class="row mt-4 justify-content-center">
-        {% for s in servico %}
+        {% for s in servicos %}
             <div class="item features-image сol-12 col-md-6 col-lg-4">
                 <div class="item-wrapper">
                     <div class="item-img">
@@ -20,10 +20,10 @@
                         </h5>
 
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">
-                            {{ s.descricao|truncatewords:10 }}</p>
+                            {{ s.descricao }}</p>
                     </div>
                     <div class="mbr-section-btn item-footer mt-2">
-                        <a href="#" class="btn btn-primary item-btn display-7" target="_blank">
+                        <a href="{{ s.link }}" class="btn btn-primary item-btn display-7" target="_blank">
                             Ir para fotos
                             &gt;</a>
                     </div>

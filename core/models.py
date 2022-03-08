@@ -34,8 +34,8 @@ class Funcionario(Base):
     instagram = models.CharField('Insta', max_length=100, default='#')
 
     class Meta:
-        verbose_name = 'Funcionário'
-        verbose_name_plural = 'Funcionários'
+        verbose_name = 'Equipe'
+        verbose_name_plural = 'Equipes'
 
     def __str__(self):
         return self.nome
@@ -47,13 +47,47 @@ class Servico(Base):
                                                  'height': 667,
                                                  'crop': True}})
     nome = models.CharField('Nome', max_length=50)
-    descricao= models.TextField('Descricao', max_length=500)
+    descricao = models.TextField('Descricao', max_length=500, blank=True)
     data = models.DateField('Data')
     link = models.CharField('Link', max_length=100)
 
     class Meta:
-        verbose_name= 'Serviço'
-        verbose_name_plural= 'Serviços'
+        verbose_name = 'Culto e Rede'
+        verbose_name_plural = 'Cultos e Redes'
+
+    def __str__(self):
+        return self.nome
+
+
+class EventosDias(Base):
+    imagem = StdImageField('Imagem', upload_to='servicos',
+                           variations={'thumb': {'width': 1000,
+                                                 'height': 667,
+                                                 'crop': True}})
+    evento = models.ForeignKey('Eventos', on_delete=models.SET_NULL, null=True)
+    nome = models.CharField('Dia', max_length=50)
+    data = models.DateField('Data')
+    link = models.CharField('Link', max_length=100)
+
+    class Meta:
+        verbose_name = 'Dia de Evento'
+        verbose_name_plural = 'Dias de Eventos'
+
+    def __str__(self):
+        return self.nome
+
+
+class Eventos(Base):
+    imagem = StdImageField('Imagem', upload_to='servicos',
+                           variations={'thumb': {'width': 1000,
+                                                 'height': 667,
+                                                 'crop': True}})
+    nome = models.CharField('Nome', max_length=50)
+    descricao = models.TextField('Descricao', max_length=500, blank=True)
+
+    class Meta:
+        verbose_name = 'Evento'
+        verbose_name_plural = 'Eventos'
 
     def __str__(self):
         return self.nome
