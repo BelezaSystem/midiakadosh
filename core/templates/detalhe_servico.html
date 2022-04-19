@@ -2,8 +2,16 @@
 {% load static %}
 
 {% block conteudo %}
-    {% for e in eventosdias %}
 
+
+    <div class="container">
+        <div class="mbr-section-head">
+            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                <strong>{{ eventos.nome }}</strong></h4>
+
+        </div>
+        <div class="row mt-4 justify-content-center">
+        {% for e in eventosdias %}
             <div class="item features-image сol-12 col-md-6 col-lg-4">
                 <div class="item-wrapper">
                     <div class="item-img">
@@ -21,10 +29,10 @@
                     </div>
                 </div>
             </div>
+        {% endfor %}
+        </div>
 
-    {% endfor %}
-<h1>{{ eventos.id }}</h1>
+    </div>
 
-
+    {% include 'footer.html' %}
 {% endblock %}
-

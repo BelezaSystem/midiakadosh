@@ -58,8 +58,17 @@ class Servico(Base):
     def __str__(self):
         return self.nome
 
+class AtivosManager(models.Manager):
+    def get_queryset(self):
+        return super(AtivosManager, self).get_queryset().all()
 
 class EventosDias(Base):
+    STATUS_CHOICES = (
+        (True, 'Ativo'),
+        (False, 'Desativo')
+    )
+    ativosG = AtivosManager()
+
     imagem = StdImageField('Imagem', upload_to='servicos',
                            variations={'thumb': {'width': 1000,
                                                  'height': 667,
